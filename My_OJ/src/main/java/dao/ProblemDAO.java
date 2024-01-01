@@ -63,7 +63,7 @@ public class ProblemDAO {
         ResultSet resultSet = null;
         try {
             connection = MyDB.getConnection();
-            String sql = "select id, title, level from oj_table";
+            String sql = "select id, title, level from OJ_table";
             statement = connection.prepareStatement(sql);
             resultSet = statement.executeQuery();
             while (resultSet.next()) {

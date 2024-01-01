@@ -1,6 +1,5 @@
 api/CompileServlet$ProblemRequest.class
 compile/Task.class
-api/UpdateUserServlet.class
 dao/IDao.class
 utills/CloseUtill.class
 utills/jdbcUtill.class
@@ -13,6 +12,8 @@ compile/Question.class
 common/MyDB.class
 dao/UserDaoImpl.class
 common/User.class
+api/UpdateUserServlett.class
+api/CheckLoginStatusServlet.class
 api/CompileServlet$CompileResponse.class
 api/CompileServlet.class
 dao/ProblemDAO.class

@@ -5,34 +5,20 @@
     <title>MyOj</title>
     <meta name="description" content="Charcoal is a free Bootstrap 4 UI kit build by @attacomsian at Wired Dots."/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Bootstrap 4-->
+    <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top sticky-navigation">
     <a class="navbar-brand font-weight-bold" href="#">OnlineJudge系统</a>
+    <div id="userStatus">
+
+    </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topMenu"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
 </nav>
-<div id="userStatus">
-    <script>
-        // 假设 'user' 是代表已登录用户的JavaScript对象
-        var user = /* ... */; // 按照您应用程序的逻辑检索用户对象
-
-        if (user && user.userName) {
-            // 用户已登录，显示用户名
-            document.getElementById("userStatus").innerHTML = "欢迎, " + user.userName;
-        } else {
-            // 用户未登录，显示登录和注册链接
-            document.getElementById("userStatus").innerHTML = '<a href="user/login.jsp">登录</a> | <a href="user/register.jsp">注册</a>';
-        }
-    </script>
-</div>
-
-
 <!--hero section-->
 <section class="bg-hero">
     <div class="container">
@@ -91,11 +77,41 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 <script src="js/app.js"></script>
 <script>
+
+    // 检查用户是否登录的函数
+    function checkLoginStatus() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/CheckLoginStatusServlet', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                updateNavbar(xhr.responseText);
+            }
+        };
+        xhr.send();
+    }
+
+    // 更新导航栏的函数
+    function updateNavbar(response) {
+        var userStatusDiv = document.getElementById('userStatus');
+        if (response === 'loggedIn') {
+            userStatusDiv.innerHTML = '<span>欢迎, 用户名</span>'; // 这里替换为实际的用户名
+        } else {
+            // 如果用户未登录，显示示例登录和注册链接
+            userStatusDiv.innerHTML = '<a href="/example-login">示例登录</a> | <a href="/example-register">示例注册</a>';
+        }
+    }
+
+    // 页面加载时检查登录状态
+    window.onload = function() {
+        checkLoginStatus();
+        getProblems();
+    };
+
     // 在页面加载的时候, 尝试从服务器获取题目列表. 通过 ajax 的方式来进行获取
     function getProblems() {
         // 1. 先通过 ajax 从服务器获取到题目列表.
         $.ajax({
-            url: "problem",
+            url: "problemServlet",
             type: "GET",
             success: function(data, status) {
                 // data 是响应的 body, status 是响应的状态码
@@ -130,8 +146,6 @@
             problemTable.appendChild(tr);
         }
     }
-    getProblems();
-
 </script>
 </body>
 </html>

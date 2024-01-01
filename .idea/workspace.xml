@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49846974-b90a-4d20-9516-dc424520eb4f" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/test01.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/My_OJ/src/main/java/api/CheckLoginStatusServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/test01.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/My_OJ/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/My_OJ/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/My_OJ/src/main/java/api/AddOrRegisterUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/My_OJ/src/main/java/api/AddOrRegisterUserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/My_OJ/src/main/java/api/CompileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/My_OJ/src/main/java/api/CompileServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/My_OJ/src/main/java/api/DeleteUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/My_OJ/src/main/java/api/DeleteUserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/My_OJ/src/main/java/api/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/My_OJ/src/main/java/api/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/My_OJ/src/main/java/api/ProblemServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/My_OJ/src/main/java/api/ProblemServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/My_OJ/src/main/java/api/UpdateUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/My_OJ/src/main/java/api/UpdateUserServlett.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/My_OJ/src/main/java/utills/jdbcUtill.java" beforeDir="false" afterPath="$PROJECT_DIR$/My_OJ/src/main/java/utills/jdbcUtill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/My_OJ/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/My_OJ/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/My_OJ/src/main/java/dao/ProblemDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/My_OJ/src/main/java/dao/ProblemDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/My_OJ/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/My_OJ/src/main/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/My_OJ/src/main/webapp/user/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/My_OJ/src/main/webapp/user/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/My_OJ/target/MyOJ.war" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/My_OJ/target/MyOJ/WEB-INF/classes/api/AddOrRegisterUserServlet.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/My_OJ/target/MyOJ/WEB-INF/classes/api/CompileServlet$CompileResponse.class" beforeDir="false" />
@@ -70,7 +61,7 @@
       <change beforePath="$PROJECT_DIR$/My_OJ/target/classes/api/DeleteUserServlet.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/My_OJ/target/classes/api/LoginServlet.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/My_OJ/target/classes/api/ProblemServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/My_OJ/target/classes/api/UpdateUserServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My_OJ/target/classes/api/UpdateUserServlett.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/My_OJ/target/classes/common/MyDB.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/My_OJ/target/classes/common/ProblemNotFoundException.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/My_OJ/target/classes/common/UnsafeCodeException.class" beforeDir="false" />
@@ -92,7 +83,6 @@
       <change beforePath="$PROJECT_DIR$/My_OJ/target/maven-archiver/pom.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/My_OJ/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/My_OJ/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,21 +113,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Maven.My_OJ [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Smart Tomcat.test01.executor&quot;: &quot;Run&quot;,
-    &quot;Smart Tomcat.未命名.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/tang/oj-works/My_OJ&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Maven.My_OJ [clean,install].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Smart Tomcat.test01.executor": "Run",
+    "Smart Tomcat.未命名.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/tang/.SmartTomcat/My_OJ/My_OJ",
+    "project.structure.last.edited": "工件",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="test01" type="com.poratu.idea.plugins.tomcat" editBeforeRun="true" singleton="true">
+      <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
+      <predefined_log_file enabled="true" id="Tomcat Access Log" />
+      <predefined_log_file id="Tomcat Catalina Log" />
+      <predefined_log_file id="Tomcat Manager Log" />
+      <predefined_log_file id="Tomcat Host Manager Log" />
+      <option name="catalinaBase" value="$USER_HOME$/.SmartTomcat/My_OJ/My_OJ" />
+      <option name="contextPath" value="/My_OJ" />
+      <option name="docBase" value="$PROJECT_DIR$/My_OJ/src/main/webapp" />
+      <option name="envOptions">
+        <map />
+      </option>
+      <option name="extraClassPath" value="" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/9.0.84" />
+          <option name="path" value="$USER_HOME$/apache-tomcat-9.0.84" />
+          <option name="version" value="9.0.84.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" value="" />
+      <module name="My_OJ" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">

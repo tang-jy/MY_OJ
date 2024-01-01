@@ -23,6 +23,17 @@
         }
     </script>
     <%
+        // 从后端获取登录状态和用户名
+        String username = (String) session.getAttribute("username");
+        if (username != null && !username.isEmpty()) {
+            request.setAttribute("loggedIn", true);
+            request.setAttribute("username", username);
+        } else {
+            request.setAttribute("loggedIn", false);
+        }
+    %>
+
+    <%
         Object message = request.getAttribute("msg");
         if (message != null && !"".equals(message)) {
     %>
