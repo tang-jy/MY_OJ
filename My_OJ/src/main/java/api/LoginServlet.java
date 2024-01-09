@@ -50,7 +50,8 @@ public class LoginServlet extends HttpServlet {
             //所以这里我要用session才可以把成功的信息传递给index.jsp
 
             req.getSession().setAttribute("user", list.get(0));
-            req.getSession().setAttribute("welcome", userName);
+            req.getSession().setAttribute("username", userName);
+
             resp.sendRedirect("index.html");
         } else {
             System.out.println("=========登录失败========");

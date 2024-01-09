@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+  <title>Add Problem</title>
+  <!-- 添加样式和JavaScript引用 -->
+</head>
+<body>
+<h2>Add New Problem</h2>
+<form id="problemForm">
+  <label for="title">Title:</label><br>
+  <input type="text" id="title" name="title"><br>
+
+  <label for="description">Description:</label><br>
+  <textarea id="description" name="description"></textarea><br>
+
+  <label for="level">level:</label><br>
+  <textarea  id="level" name="level"></textarea><br>
+
+
+  <label for="codeTest">codeTest:</label><br>
+  <textarea  id="codeTest" name="codeTest"></textarea><br>
+
+
+  <label for="codeTemplate">codeTemplate:</label><br>
+  <textarea id="codeTemplate" name="codeTemplate"></textarea><br>
+
+<!--  <input type="button" value="Submit" onclick="submitProblem()">-->
+  <button onclick="submitProblem(event)">Submit</button>
+
+</form>
+
+<script>
+  function submitProblem(event) {
+    // 防止表单默认提交行为
+    event.preventDefault();
+
+    var title = document.getElementById('title').value;
+    var description = document.getElementById('description').value;
+    var level = document.getElementById('level').value;
+    var codeTest = document.getElementById('codeTest').value;
+    var codeTemplate = document.getElementById('codeTemplate').value;
+
+    // 发送数据到服务器的代码
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/My_OJ/AddProblemServlet", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(
+        "title=" + encodeURIComponent(title) +
+        "&description=" + encodeURIComponent(description) +
+        "&level=" + encodeURIComponent(level) +
+        "&codeTest=" + encodeURIComponent(codeTest) +
+        "&codeTemplate=" + encodeURIComponent(codeTemplate)
+    );
+
+    xhr.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            // 处理响应
+            alert("Problem added successfully!");
+            // 可能的表单清理操作
+            document.getElementById('title').value = '';
+            document.getElementById('description').value = '';
+            document.getElementById('level').value = '';
+            document.getElementById('codeTest').value = '';
+            document.getElementById('codeTemplate').value = '';
+        } else if (this.readyState === 4) {
+            // 错误处理
+            alert("An error occurred.");
+        }
+    };
+}
+</script>
+</body>
+</html>

@@ -11,9 +11,9 @@
 <body>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top sticky-navigation">
     <a class="navbar-brand font-weight-bold" href="#">OnlineJudge系统</a>
-    <div id="userStatus">
+    <div id="userStatus"></div>
+    <div id="adminControls"></div>
 
-    </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topMenu"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -78,27 +78,30 @@
 <script src="js/app.js"></script>
 <script>
 
+    function updateNavbar(response) {
+        var userStatusDiv = document.getElementById('userStatus');
+        if (response.status === 'loggedIn') {
+            userStatusDiv.innerHTML = '<span>欢迎, ' + response.username + '</span>';
+            if(response.username === 'admin') {
+                document.getElementById('adminControls').innerHTML = '<a class="navbar-brand font-weight-bold" href="/My_OJ/addproblem.html">add problems</a>';
+            }
+        } else {
+            userStatusDiv.innerHTML = '<a class="navbar-brand font-weight-bold" href="/My_OJ/user/login.jsp">登录</a> | <a class="navbar-brand font-weight-bold" href="/My_OJ/user/addOrRegister.jsp">注册</a>';
+        }
+    }
+
     // 检查用户是否登录的函数
     function checkLoginStatus() {
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', '/CheckLoginStatusServlet', true);
+        xhr.open('GET', 'http://localhost:8080/My_OJ/CheckLoginStatusServlet', true);
+        // 以上需要的是绝对路径
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {
-                updateNavbar(xhr.responseText);
+                var response = JSON.parse(this.responseText);
+                updateNavbar(response);
             }
         };
         xhr.send();
-    }
-
-    // 更新导航栏的函数
-    function updateNavbar(response) {
-        var userStatusDiv = document.getElementById('userStatus');
-        if (response === 'loggedIn') {
-            userStatusDiv.innerHTML = '<span>欢迎, 用户名</span>'; // 这里替换为实际的用户名
-        } else {
-            // 如果用户未登录，显示示例登录和注册链接
-            userStatusDiv.innerHTML = '<a href="/example-login">示例登录</a> | <a href="/example-register">示例注册</a>';
-        }
     }
 
     // 页面加载时检查登录状态

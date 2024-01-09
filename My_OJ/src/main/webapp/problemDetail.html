@@ -10,34 +10,7 @@
 </head>
 <body>
 
-<!--<nav class="navbar navbar-expand-md navbar-dark fixed-top sticky-navigation">-->
-<!--    <a class="navbar-brand font-weight-bold" href="#">CJJ的OnlineJudge系统</a>-->
-<!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topMenu"-->
-<!--            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--        <span class="navbar-toggler-icon"></span>-->
-<!--    </button>-->
 
-<!--    <div class="collapse navbar-collapse" id="topMenu">-->
-<!--    </div>-->
-<!--</nav>-->
-
-<!--&lt;!&ndash;hero section&ndash;&gt;-->
-<!--<section class="bg-hero">-->
-<!--    <div class="container">-->
-<!--        <div class="row vh-100">-->
-<!--            <div class="col-sm-12 my-auto text-center">-->
-<!--                <h1>学习用途的OJ平台</h1>-->
-<!--                <p class="lead text-capitalize my-4">-->
-<!--                    基于 Java Servlet 实现-->
-<!--                </p>-->
-<!--                <a href="https://github.com/Rserendipity/My_OnlineJudge"-->
-<!--                   class="btn btn-outline-light btn-radius btn-lg">项目源码连接</a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-
-<!--components-->
 <section class="my-5 pt-5">
     <div class="container">
         <div class="row mt-4">
@@ -130,10 +103,11 @@
     let editor = initAce();
 
     // 通过 ajax 从服务器获取到题目的详情
+
     function getProblem() {
         // 1. 通过 ajax 给服务器发送一个请求
         $.ajax({
-            url: "problem" + location.search,
+            url: "problemServlet" + location.search,
             type: "GET",
             success: function (data, status) {
                 makeProblemDetail(data);
@@ -170,16 +144,16 @@
             };
             $.ajax({
                 type: "POST",
-                url: "compile",
+                url: "CompileServlet",
                 data: JSON.stringify(body),
                 success: function (data, status) {
                     let problemResult = document.querySelector("#problemResult");
 
-                    // problemResult.innerHTML = data.stdout;
+                    problemResult.innerHTML = data.stdout;
 
                     if (data.stdout != null) {
                         // 编译运行没有问题, 把 stdout 显示到页面中
-                        problemResult.innerHTML = data.stdout;
+                        problemResult.innerHTML = '<a class="navbar-brand font-weight-bold" href="/My_OJ/user/login.jsp">Accept</a> ';
                     } else {
                         // 编译运行有问题, 把 reason 显示到页面中
                         problemResult.innerHTML = data.errReason;

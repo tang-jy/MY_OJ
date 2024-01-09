@@ -20,6 +20,7 @@ dao/ProblemDAO.class
 compile/ReaderAndWriter.class
 common/ProblemNotFoundException.class
 api/DeleteUserServlet.class
+api/AddProblemServlet.class
 compile/TaskResult.class
 dao/UserDaoImpl$1.class
 api/LoginServlet.class

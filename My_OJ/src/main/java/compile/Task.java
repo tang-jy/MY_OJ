@@ -25,7 +25,7 @@ public class Task {
     private final String STD_ERR;
 
     public Task() {
-        DIR = "./tmp/" + UUID.randomUUID() + "/";
+        DIR = "/tmp/" + UUID.randomUUID() + "/";
         CLASS_NAME = "Solution";
         CLASS_FILE = DIR + "Solution.java";
         COMPILE_ERROR = DIR + "compileError.txt";
@@ -71,7 +71,7 @@ public class Task {
 
         // 3. 使用Java运行
         // String runCmd = String.format("%s", DIR + CLASS_NAME);
-        String runCmd = String.format("java -classpath %s %s", DIR, CLASS_NAME);
+        String runCmd = String.format("java  -classpath %s %s", DIR, CLASS_NAME);
         int runCode = 0;
         try {
             runCode = CommandExec.run(runCmd, STD_OUT, STD_ERR);
@@ -79,8 +79,11 @@ public class Task {
             e.printStackTrace();
         }
         // 运行失败 或者 std_err不为空
-        if (runCode != 0 || !ReaderAndWriter.readFile(STD_ERR).equals("")) { // code不为零,说明出错了
+        String JVM_CONF = "NOTE: Picked up JDK_JAVA_OPTIONS: --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED\n";
+        // 以上是一个正常的JVM参数但是会莫名出现在 error 文件内部 所以不能盲目判断只要文件有东西就判断错
+        if (runCode != 0 || !ReaderAndWriter.readFile(STD_ERR).equals(JVM_CONF)) { // code不为零,说明出错了
             // 设置标志 --> runner_error 运行错误
+            System.out.println("WAWAWA\n"+STD_ERR);
             taskResult.setErrorFlag(TaskResult.ErrorFlag.RUNNER_ERROR);
             // 设置错误信息 --> stderr 错误信息
             taskResult.setMessage(ReaderAndWriter.readFile(STD_ERR));
@@ -88,8 +91,9 @@ public class Task {
         }
 
         // 4. 执行完毕, 编译和运行都没有错误, 把程序执行的结果返回(stdout的内容)
-        taskResult.setErrorFlag(TaskResult.ErrorFlag.OK);
+        taskResult.setErrorFlag(TaskResult.ErrorFlag.AC);
         taskResult.setStdout(ReaderAndWriter.readFile(STD_OUT));
+        System.out.println("ACACAC\n"+STD_OUT);
         return taskResult;
     }
 
@@ -114,7 +118,7 @@ public class Task {
         question.setCode("public class Solution {\n" +
                 "    public static void main(String[] args) {\n" +
                 "        System.out.print(\"hello world\");\n" +
-                "        // System.err.print(\"this is a error message\");\n" +
+                "        System.err.print(\"this is a error message\");\n" +
                 "    }\n" +
                 "}");
         Task task = new Task();

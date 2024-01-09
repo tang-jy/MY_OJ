@@ -4711,6 +4711,13 @@ a.bg-dark:focus, a.bg-dark:hover {
   -ms-flex-item-align: auto !important;
       align-self: auto !important; }
 
+.accept-message {
+    color: green;
+    font-size: 20px;
+    font-weight: bold;
+    /* 这里可以添加更多样式 */
+}
+
 .align-self-start {
   -ms-flex-item-align: start !important;
       align-self: flex-start !important; }

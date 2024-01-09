@@ -13,6 +13,7 @@ public class CheckLoginStatusServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 设置响应内容类型为文本
+        System.out.println("已经开始运行check");
         response.setContentType("text/plain");
         response.setCharacterEncoding("UTF-8");
 
@@ -21,13 +22,11 @@ public class CheckLoginStatusServlet extends HttpServlet {
 
         // 检查 session 是否存在且是否有用户信息
         if (session != null && session.getAttribute("username") != null) {
-            // 用户已登录
-            System.out.println("login");
-            response.getWriter().write("loggedIn");
+            String username = (String) session.getAttribute("username");
+            // 返回JSON响应，包含登录状态和用户名
+            response.getWriter().write("{\"status\":\"loggedIn\", \"username\":\"" + username + "\"}");
         } else {
-            // 用户未登录
-            System.out.println("wrong name");
-            response.getWriter().write("notLoggedIn");
+            response.getWriter().write("{\"status\":\"notLoggedIn\"}");
         }
     }
 }

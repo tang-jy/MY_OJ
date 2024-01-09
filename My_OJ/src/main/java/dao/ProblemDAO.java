@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProblemDAO {
-    public void insert(Problem problem) {
+    public static void insert(Problem problem) {
         Connection connection = null;
         PreparedStatement statement = null;
         try {
             connection = MyDB.getConnection();
-            String sql = "insert into oj_table values (null, ?, ?, ?, ?, ?)";
+            String sql = "insert into OJ_table values (null, ?, ?, ?, ?, ?)";
             statement = connection.prepareStatement(sql);
             statement.setString(1, problem.getTitle());
             statement.setString(2, problem.getLevel());
@@ -40,7 +40,7 @@ public class ProblemDAO {
         PreparedStatement statement = null;
         try {
             connection = MyDB.getConnection();
-            String sql = "delete from oj_table where id = ?";
+            String sql = "delete from OJ_table where id = ?";
             statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
             int ret = statement.executeUpdate();
@@ -81,13 +81,13 @@ public class ProblemDAO {
         return list;
     }
 
-    public Problem selectOne(int id) {
+    public static Problem selectOne(int id) {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
             connection = MyDB.getConnection();
-            String sql = "select * from oj_table where id = ?";
+            String sql = "select * from OJ_table where id = ?";
             statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
             resultSet = statement.executeQuery();

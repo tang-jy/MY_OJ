@@ -5,7 +5,7 @@ package compile;
  * */
 public class TaskResult {
     public enum ErrorFlag {
-        OK,             // 没有错误
+        AC,             // 没有错误
         COMPILE_ERROR,  // 编译错误
         RUNNER_ERROR,   // 运行终止错误(异常终止等)
         UNSAFE_CODE,    // 提交了非法代码
